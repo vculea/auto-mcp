@@ -21,9 +21,8 @@ export async function openCombobox(page: Page) {
   await page.locator('.x-field .x-form-arrow-trigger').click();
 }
 
-export async function selectComboboxOption(page: Page, option: string) {
-  await page.getByRole('combobox').fill(option);
-  await page.getByRole('option', { name: option }).waitFor({ state: 'visible' });
+export async function selectComboboxOption(page: Page, fieldName: string, option: string) {
+  await page.getByRole('combobox', { name: fieldName }).fill(option);
   await page.getByRole('option', { name: option }).click();
 }
 
@@ -32,12 +31,18 @@ export async function verifyComboboxSelection(page: Page, option: string) {
 }
 
 export async function selectTagFieldOption(page: Page, fieldName: string, option: string) {
-  await page.getByRole('textbox', { name: fieldName }).fill(option);
+  const input = page.getByRole('textbox', { name: fieldName });
+  await input.focus();
+  await input.fill(option);
   await page.getByRole('option', { name: option }).waitFor({ state: 'visible' });
   await page.getByRole('option', { name: option }).click();
 }
 
+export async function closeInvitationDialog(page: Page, dialogName: string) {
+  await page.getByRole('alertdialog', { name: dialogName }).getByRole('button', { name: 'Close' }).click();
+}
+
 export function generateTestEmail(domain: string = 'sdl.testinator.com'): string {
-  const timestamp = Math.floor(Date.now() / 1000);
+  const timestamp = Date.now();
   return `mcp-${timestamp}@${domain}`;
 }
