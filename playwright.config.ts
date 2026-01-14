@@ -30,13 +30,24 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    
+    /* Show browser UI but close automatically when test finishes */
+    headless: false,
+    
+    /* Timeout for each action (click, fill, etc.) - fail fast if element not found */
+    actionTimeout: 5000, // 5 seconds
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        viewport: null, // Use real browser window size (fullscreen)
+        launchOptions: {
+          args: ['--start-maximized'], // Start maximized
+        },
+      },
     },
 
     {
