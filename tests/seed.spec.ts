@@ -4,6 +4,6 @@ import { login, logout } from './helpers/auth';
 test.describe('Test group', () => {
   test('seed', async ({ page }) => {
     await login(page);
-
+    // await combobox(page, "Customers")
   });
 });
