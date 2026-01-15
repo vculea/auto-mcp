@@ -46,3 +46,7 @@ export function generateTestEmail(domain: string = 'sdl.testinator.com'): string
   const timestamp = Date.now();
   return `mcp-${timestamp}@${domain}`;
 }
+
+export async function clickOnButton(page: Page, buttonName: string) {
+  await page.getByRole('button', { name: buttonName }).click();
+}
