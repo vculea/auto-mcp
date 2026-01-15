@@ -1,8 +1,8 @@
-# Promt Instructions - Playwright MCP
+# Prompt Instructions - Playwright MCP
 
 ## What I want you to do!
 - Run /test/seed.spec.ts which opens the page and logs in
-- use prioritar methods from /helpers/auth.ts
+- Use priority methods from /helpers/auth.ts
 - Then follow the instructions from the prompt
 - Members tab is under Users
 - Generate the email using generateTestEmail method from /helpers/auth.ts
@@ -16,16 +16,17 @@
 - Don't create groups
 
 ## When it's a combobox follow these steps:
-- If the prompt contains the text 'existing' is a combobox
+- If the prompt contains the text 'existing' it's a combobox
 - For combobox use selectComboboxOption method from /helpers/auth.ts
 - If the method doesn't work, improve it
 
 ## When it's a tag field follow these steps:
-- If the prompt contains the text 'existing' is a tag field
+- If the prompt contains the text 'existing' it's a tag field
 - For tag field use selectTagFieldOption method from /helpers/auth.ts
 - If the method doesn't work, improve it
 
 ## Report
 - Write all variables used in the test
-- Create a report only methods from /tests/helpers which failedd when was used, propose a modification
-- If what you did is repetitive and can be made into a generic helper, create it 
+- Create a report only for methods from /tests/helpers which failed when used, propose a modification
+- If what you did is repetitive and can be made into a generic helper, create it
+- Tell me how many tokens were used 
